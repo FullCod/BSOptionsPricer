@@ -1,0 +1,996 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Universal.Common.Mathematics</name>
+    </assembly>
+    <members>
+        <member name="T:Universal.Common.Mathematics.DiscreteCosineTransform">
+            <summary>
+            Methods for calculating the Discrete Cosine Transform.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteCosineTransform.Calculate(System.Double[])">
+            <summary>
+            Calculates the standard form of the DCT - equivalent to <see cref="M:Universal.Common.Mathematics.DiscreteCosineTransform.DiscreteCosineTransformII(System.Double[])"/>.
+            </summary>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteCosineTransform.DiscreteCosineTransformI(System.Double[])">
+            <summary>
+            Returns the type-I Discrete Cosine Transform of a given array of doubles.
+            Equivalent to DCT-I in https://en.wikipedia.org/wiki/Discrete_cosine_transform.
+            </summary>
+            <param name="points"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteCosineTransform.DiscreteCosineTransformII(System.Double[])">
+            <summary>
+            Returns the type-II Discrete Cosine Transform of a given array of doubles.
+            Equivalent to DCT-II in https://en.wikipedia.org/wiki/Discrete_cosine_transform.
+            </summary>
+            <param name="points"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteCosineTransform.DiscreteCosineTransformIII(System.Double[])">
+            <summary>
+            Returns the type-III Discrete Cosine Transform of a given array of doubles.
+            Equivalent to DCT-III in https://en.wikipedia.org/wiki/Discrete_cosine_transform.
+            </summary>
+            <param name="points"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteCosineTransform.DiscreteCosineTransformIV(System.Double[])">
+            <summary>
+            Returns the type-IV Discrete Cosine Transform of a given array of doubles.
+            Equivalent to DCT-IV in https://en.wikipedia.org/wiki/Discrete_cosine_transform.
+            </summary>
+            <param name="points"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.DiscreteDistribution`1">
+            <summary>
+            Represents an arbitrary discrete distribution that can be sampled.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Universal.Common.Mathematics.DiscreteDistribution`1.Elements">
+            <summary>
+            Gets the elemenets in the distribution.
+            </summary>
+        </member>
+        <member name="P:Universal.Common.Mathematics.DiscreteDistribution`1.Frequencies">
+            <summary>
+            Gets the corresponding frequencies of the elements in the distribution.
+            </summary>
+        </member>
+        <member name="P:Universal.Common.Mathematics.DiscreteDistribution`1.CumulativeFrequencies">
+            <summary>
+            Gets the correponding cumulative frequencies of the elements in the distribution.
+            </summary>
+        </member>
+        <member name="P:Universal.Common.Mathematics.DiscreteDistribution`1.TotalFrequency">
+            <summary>
+            Gets the total frequency of the elements in the distribution.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteDistribution`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Func{`0,System.Double})">
+            <summary>
+            Creates a new <see cref="T:Universal.Common.Mathematics.DiscreteDistribution`1"/> with the given elements and specifies the frequencies based on the type <typeparamref name="T"/>.
+            </summary>
+            <param name="elements"></param>
+            <param name="frequencySelector"></param>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteDistribution`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Creates a new <see cref="T:Universal.Common.Mathematics.DiscreteDistribution`1"/> with the given elements and specifies the frequencies based a given array of the same length.
+            </summary>
+            <param name="elements"></param>
+            <param name="frequencies"></param>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteDistribution`1.Sample">
+            <summary>
+            Samples a random element from the distribution.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteDistribution`1.Sample(System.Random)">
+            <summary>
+            Samples a random element from the distribution, using the given random number generator.
+            </summary>
+            <param name="random"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.DiscreteFourierTransform">
+            <summary>
+            Methods for calculating the Discrete Fourier Transform.
+            </summary>
+        </member>
+        <member name="T:Universal.Common.Mathematics.DiscreteFourierTransform.Direction">
+            <summary>
+            The transform direction. This affects signs and scaling factors.
+            </summary>
+        </member>
+        <member name="F:Universal.Common.Mathematics.DiscreteFourierTransform.Direction.Forward">
+            <summary>
+            Applies a negative sign to the exponent and no scaling factor.
+            </summary>
+        </member>
+        <member name="F:Universal.Common.Mathematics.DiscreteFourierTransform.Direction.Backward">
+            <summary>
+            Applies a positive sign to the exponent and a scaling factor of 1/N.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteFourierTransform.Calculate(System.Double[],Universal.Common.Mathematics.DiscreteFourierTransform.Direction)">
+            <summary>
+            Performs the naive computation of the Discrete Fourier Transform with O(n^2) complexity.
+            </summary>
+            <param name="points"></param>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteFourierTransform.Calculate(System.Numerics.Complex[],Universal.Common.Mathematics.DiscreteFourierTransform.Direction)">
+            <summary>
+            Performs the naive computation of the Discrete Fourier Transform with O(n^2) complexity.
+            </summary>
+            <param name="points"></param>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteFourierTransform.FastFourierTransform(System.Double[],Universal.Common.Mathematics.DiscreteFourierTransform.Direction)">
+            <summary>
+            Performs a Fast Fourier Transform on the given real data set based on the Cooley–Tukey algorithm described here:
+            https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm
+            The length of the array must be a power of 2.
+            </summary>
+            <param name="points"></param>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.DiscreteFourierTransform.FastFourierTransform(System.Numerics.Complex[],Universal.Common.Mathematics.DiscreteFourierTransform.Direction)">
+            <summary>
+            Performs a Fast Fourier Transform on the given <see cref="T:System.Numerics.Complex"/> data set based on the Cooley–Tukey algorithm described here:
+            https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm
+            The length of the array must be a power of 2.
+            </summary>
+            <param name="points"></param>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.IntervalBoundType">
+            <summary>
+            Represents an interval endpoint type.
+            </summary>
+        </member>
+        <member name="F:Universal.Common.Mathematics.IntervalBoundType.Open">
+            <summary>
+            Represents an open bounds.
+            </summary>
+        </member>
+        <member name="F:Universal.Common.Mathematics.IntervalBoundType.Closed">
+            <summary>
+            Represents a closed bounds.
+            </summary>
+        </member>
+        <member name="T:Universal.Common.Mathematics.Extensions.ArrayExtensions">
+            <summary>
+            Extensions for the array class.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.ArrayExtensions.DotProduct(System.Double[],System.Double[])">
+            <summary>
+            Returns the dot product of two arrays of doubles.
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.ArrayExtensions.DotProduct(System.Numerics.Complex[],System.Numerics.Complex[])">
+            <summary>
+            Returns the dot product of two arrays of <see cref="T:System.Numerics.Complex"/>.
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.Extensions.EvdExtensions">
+            <summary>
+            Extension methods for the Math.NET <see cref="T:MathNet.Numerics.LinearAlgebra.Factorization.Evd`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.EvdExtensions.Extract``1(MathNet.Numerics.LinearAlgebra.Factorization.Evd{``0})">
+            <summary>
+            Extracts the eigenvalue and corresponding eigenvectors as a list of Tuples.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Evd"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.Extensions.FuncExtensions">
+            <summary>
+            Extension methods for functions.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.FuncExtensions.Derivative3Point(System.Func{System.Double,System.Double},System.Double)">
+            <summary>
+            Returns the 3-point derivative of a real-valued function as another real-valued function that accepts the point of evaluation.
+            </summary>
+            <param name="Function"></param>
+            <param name="h"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.FuncExtensions.Derivative5Point(System.Func{System.Double,System.Double},System.Double)">
+            <summary>
+            Returns the 5-point derivative of a real-valued function as another real-valued function that accepts the point of evaluation.
+            </summary>
+            <param name="Function"></param>
+            <param name="h"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.FuncExtensions.IntegrateMidpoint(System.Func{System.Double,System.Double},System.Int32)">
+            <summary>
+            Uses the midpoint technique on a grid to integrate the given real-valued function, returning a real-valued function that takes the limits of integration.
+            </summary>
+            <param name="Function"></param>
+            <param name="intervals"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.FuncExtensions.IntegrateTrapezoidal(System.Func{System.Double,System.Double},System.Int32)">
+            <summary>
+            Uses the trapezoidal rule on a grid to integrate the given real-valued function, returning a real-valued function that takes the limits of integration.
+            </summary>
+            <param name="Function"></param>
+            <param name="intervals"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.Extensions.IEnumerableExtensions">
+            <summary>
+            Extensions for enumerable sequences.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.IEnumerableExtensions.SmoothCubicBezier(System.Collections.Generic.IEnumerable{System.ValueTuple{System.Single,System.Single}},System.Double)">
+            <summary>
+            Generates a series of points that can be used to plot a cubic representation of a set of points.
+            </summary>
+            <param name="IEnumerable"></param>
+            <param name="smoothingFactor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.IEnumerableExtensions.SmoothCubicBezier(System.Collections.Generic.IEnumerable{System.ValueTuple{System.Double,System.Double}},System.Double)">
+            <summary>
+            Generates a series of points that can be used to plot a cubic representation of a set of points.
+            </summary>
+            <param name="IEnumerable"></param>
+            <param name="smoothingFactor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.IEnumerableExtensions.ToTimeSeries``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.DateTime,``0}})">
+            <summary>
+            Creates a new <see cref="T:Universal.Common.Mathematics.TimeSeries`1"/> from the given sequence.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.Extensions.Int32Extensions">
+            <summary>
+            Extension methods for <see cref="T:System.Int32"/>
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.Int32Extensions.Choose(System.Int32,System.Int32)">
+            <summary>
+            The number of ways to choose <paramref name="r"/> elements from <paramref name="n"/>.
+            </summary>
+            <param name="n"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.Int32Extensions.Permute(System.Int32,System.Int32)">
+            <summary>
+            The number of ways to create a permutation of <paramref name="r"/> elements from <paramref name="n"/>.
+            </summary>
+            <param name="n"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.Extensions.MatrixBuilderExtensions">
+            <summary>
+            Extension methods for the Math.NET <see cref="T:MathNet.Numerics.LinearAlgebra.MatrixBuilder`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixBuilderExtensions.DenseCentering``1(MathNet.Numerics.LinearAlgebra.MatrixBuilder{``0},System.Int32)">
+            <summary>
+            Returns the centering matrix of order n.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="MatrixBuilder"></param>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixBuilderExtensions.DenseOne``1(MathNet.Numerics.LinearAlgebra.MatrixBuilder{``0},System.Int32)">
+            <summary>
+            Returns a square <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/> of ones.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="MatrixBuilder"></param>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixBuilderExtensions.DenseOne``1(MathNet.Numerics.LinearAlgebra.MatrixBuilder{``0},System.Int32,System.Int32)">
+            <summary>
+            Returns an m by n <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/> of ones.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="MatrixBuilder"></param>
+            <param name="rows"></param>
+            <param name="columns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixBuilderExtensions.DenseZero``1(MathNet.Numerics.LinearAlgebra.MatrixBuilder{``0},System.Int32)">
+            <summary>
+            Returns a square <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/> of zeroes.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="MatrixBuilder"></param>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixBuilderExtensions.DenseZero``1(MathNet.Numerics.LinearAlgebra.MatrixBuilder{``0},System.Int32,System.Int32)">
+            <summary>
+            Returns an m by n <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/> of zeroes.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="MatrixBuilder"></param>
+            <param name="rows"></param>
+            <param name="columns"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.Extensions.MatrixExtensions">
+            <summary>
+            Extensions for Math.NET <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixExtensions.Convolve``1(MathNet.Numerics.LinearAlgebra.Matrix{``0},MathNet.Numerics.LinearAlgebra.Matrix{``0})">
+            <summary>
+            Returns the result of a convolution of a given <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/> and a given kernel.
+            </summary>
+            <param name="tMatrix"></param>
+            <param name="kernel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixExtensions.Convolve``1(MathNet.Numerics.LinearAlgebra.Matrix{``0},System.Int32,System.Int32,System.Func{MathNet.Numerics.LinearAlgebra.Matrix{``0},System.Int32,System.Int32,``0})">
+            <summary>
+            Returns the result of a convolution of a given <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/> with the given function that operates on pointwise area sample.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Matrix"></param>
+            <param name="sampleSizeWidth"></param>
+            <param name="sampleSizeHeight"></param>
+            <param name="function">Function to apply for each sample.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixExtensions.ElementWiseDotProduct``1(MathNet.Numerics.LinearAlgebra.Matrix{``0},MathNet.Numerics.LinearAlgebra.Matrix{``0})">
+            <summary>
+            Returns the element-wise scalar product of two matrices by applying the default multiplication function to each point i, j and returning the summation of the values.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Matrix"></param>
+            <param name="matrix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixExtensions.ElementWiseDotProduct``1(MathNet.Numerics.LinearAlgebra.Matrix{``0},MathNet.Numerics.LinearAlgebra.Matrix{``0},System.Func{``0,``0,``0})">
+            <summary>
+            Return the element-wise scalar product of two matrices by applying a function to each point i, j and returning the summation of the values. 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Matrix"></param>
+            <param name="matrix"></param>
+            <param name="function">Function to apply to each pair of points i, j.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixExtensions.PointwiseApply``1(MathNet.Numerics.LinearAlgebra.Matrix{``0},System.Func{``0,``0})">
+            <summary>
+            Applies a function to each element of a <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/> and returns the result as a new <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Matrix"></param>
+            <param name="function"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixExtensions.Pca``1(MathNet.Numerics.LinearAlgebra.Matrix{``0})">
+            <summary>
+            Returns the 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Matrix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixExtensions.SampleCovariance``1(MathNet.Numerics.LinearAlgebra.Matrix{``0})">
+            <summary>
+            Returns the covariance matrix of a given <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Matrix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixExtensions.SampleMean``1(MathNet.Numerics.LinearAlgebra.Matrix{``0})">
+            <summary>
+            Returns the sample mean of a <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>. Assumes that observations are stored as rows and columns represent an observable variable.
+            Equivalent to the column sums divided by the row count.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Matrix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Extensions.MatrixExtensions.ScatterMatrix``1(MathNet.Numerics.LinearAlgebra.Matrix{``0})">
+            <summary>
+            Returns the scatter matrix of a <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Matrix"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.FiniteOptimizer`4">
+            <summary>
+            <see cref="T:Universal.Common.Mathematics.IOptimizer`4"/> that optimizes by choosing the best of a given set of generating functions.
+            </summary>
+            <typeparam name="TDatum"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <typeparam name="TPerformance"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+        </member>
+        <member name="T:Universal.Common.Mathematics.FiniteOptimizer`5">
+            <summary>
+            <see cref="T:Universal.Common.Mathematics.IOptimizer`5"/> that optimizes by choosing the best of a given set of generating functions.
+            </summary>
+            <typeparam name="TDatum"></typeparam>
+            <typeparam name="TPartition"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <typeparam name="TPerformance"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+        </member>
+        <member name="T:Universal.Common.Mathematics.ForecastModel`1">
+            <summary>
+            Abstract class representing a time series forecasting model.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Universal.Common.Mathematics.ForecastModel`1.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.DateTime,`0}})">
+            <summary>
+            Initializes a new <see cref="T:Universal.Common.Mathematics.ForecastModel`1"/> with the given actual data.
+            </summary>
+            <param name="actual"></param>
+        </member>
+        <member name="M:Universal.Common.Mathematics.ForecastModel`1.Forecast(System.DateTime)">
+            <summary>
+            Returns the forecast at the given date time.
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.ForecastModel`1.Forecast(System.Collections.Generic.IEnumerable{System.DateTime})">
+            <summary>
+            Returns a <see cref="T:Universal.Common.Mathematics.TimeSeries`1"/> with the forecast data.
+            </summary>
+            <param name="dateTimes"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.Math">
+            <summary>
+            Additional functions that support the set provided by <see cref="T:System.Math"/>.
+            Provides pass through evaluation for <see cref="T:System.Math"/> functions and constants.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Math.Factorial(System.Int32)">
+            <summary>
+            Calculates the factorial of <paramref name="n"/>.
+            </summary>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Math.IsPowerOf2(System.Int32)">
+            <summary>
+            Returns true if the given integer is a power of 2.
+            </summary>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Math.Log2(System.Int32)">
+            <summary>
+            Calculates the integral base-2 logarithm of them given integer.
+            </summary>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Math.Heaviside(System.Double)">
+            <summary>
+            Returns the value of the Heaviside step function at x.
+            Uses the convention that H(0) = 1/2.
+            </summary>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Math.HypergeometricFunction(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Returns the value of the regular hypergeometric function 2F1.
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+            <param name="z"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Math.Pochhammer(System.Int32,System.Int32)">
+            <summary>
+            Returns the value of the Pochhammer symbol for the given arguments.
+            http://mathworld.wolfram.com/PochhammerSymbol.html
+            </summary>
+            <param name="x"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Math.Pow2(System.Int32)">
+            <summary>
+            Returns 2 raised to the given exponent.
+            </summary>
+            <param name="exponent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Math.Pochhammer(System.Double,System.Int32)">
+            <summary>
+            Returns the value of the Pochhammer symbol for the given arguments.
+            http://mathworld.wolfram.com/PochhammerSymbol.html
+            </summary>
+            <param name="x"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.GridOptimizer`4">
+            <summary>
+            <see cref="T:Universal.Common.Mathematics.IOptimizer`4"/> that optimizes over a grid generated by the given points.
+            </summary>
+            <typeparam name="TDatum"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <typeparam name="TPerformance"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+        </member>
+        <member name="T:Universal.Common.Mathematics.GridOptimizer`5">
+            <summary>
+            <see cref="T:Universal.Common.Mathematics.IOptimizer`5"/> that optimizes over a grid generated by the given points.
+            </summary>
+            <typeparam name="TDatum"></typeparam>
+            <typeparam name="TPartition"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <typeparam name="TPerformance"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+        </member>
+        <member name="T:Universal.Common.Mathematics.IForecastModel`1">
+            <summary>
+            Represents an object capable of forecasting into the future.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Universal.Common.Mathematics.IForecastModel`1.Forecast(System.DateTime)">
+            <summary>
+            Returns the forecast for a given date time.
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.IForecastModel`1.Forecast(System.Collections.Generic.IEnumerable{System.DateTime})">
+            <summary>
+            Returns a series of points representing the forecast for the given date times.
+            </summary>
+            <param name="dateTimes"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.IOptimizationParameters`2">
+            <summary>
+            Represents parameters used for an optimization problem.
+            </summary>
+            <typeparam name="TPerformance">The type of a performance object on which constraints and targets can be evaluated against.</typeparam>
+            <typeparam name="TTarget">The type of the target.</typeparam>
+        </member>
+        <member name="P:Universal.Common.Mathematics.IOptimizationParameters`2.Direction">
+            <summary>
+            The direction to perform the optimization.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.IOptimizationParameters`2.GetTarget(`0)">
+            <summary>
+            Gets the value of the target for the given <typeparamref name="TPerformance"/>.
+            </summary>
+            <param name="performance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.IOptimizationParameters`2.AreConstraintsFulfilled(`0)">
+            <summary>
+            Evaluates if all constraints are met for the given <typeparamref name="TPerformance"/>.
+            </summary>
+            <param name="performance"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.IOptimizer`4">
+            <summary>
+            Represents a general optimizer that can be used in optimization problems.
+            </summary>
+            <typeparam name="TDatum">The type of the individual data points.</typeparam>
+            <typeparam name="TValue">The type of the values to be assigned to each data point.</typeparam>
+            <typeparam name="TPerformance">The type of the intermediate performance object which can be used to evaluate the value of the target and the constraints.</typeparam>
+            <typeparam name="TTarget">The type of the target.</typeparam>
+        </member>
+        <member name="M:Universal.Common.Mathematics.IOptimizer`4.Optimize(Universal.Common.Mathematics.IOptimizationParameters{`2,`3},System.Collections.Generic.IEnumerable{`0},System.Func{System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}},`2})">
+            <summary>
+            Performs an optimization with the given parameters over the given data set.
+            </summary>
+            <param name="parameters">The optimization parameters to use.</param>
+            <param name="data">The data points to provide optimal values for.</param>
+            <param name="performanceEstimator">A function that generates an intermediate performance object for the given hypothesis.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.IOptimizer`5">
+            <summary>
+            Represents a general optimizer that can be used in optimization problems.
+            </summary>
+            <typeparam name="TDatum">The type of the individual data points.</typeparam>
+            <typeparam name="TPartition">The type of the partition to generate values for.</typeparam>
+            <typeparam name="TValue">The type of the values to be assigned to each data point.</typeparam>
+            <typeparam name="TPerformance">The type of the intermediate performance object which can be used to evaluate the value of the target and the constraints.</typeparam>
+            <typeparam name="TTarget">The type of the target.</typeparam>
+        </member>
+        <member name="M:Universal.Common.Mathematics.IOptimizer`5.Optimize(Universal.Common.Mathematics.IOptimizationParameters{`3,`4},System.Collections.Generic.IEnumerable{`0},System.Func{`0,`1},System.Func{System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`2}},`3})">
+            <summary>
+            Performs an optimization with the given parameters over the given data set.
+            </summary>
+            <param name="parameters">The optimization parameters to use.</param>
+            <param name="data">The data points to provide optimal values for.</param>
+            <param name="partitioner">The partitioner to use to determine the partitions of the data.</param>
+            <param name="performanceEstimator">A function that generates an intermediate performance object for the given hypothesis.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.Interval`1">
+            <summary>
+            Represents a mathematical interval.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Universal.Common.Mathematics.Interval`1.LowerBound">
+            <summary>
+            Gets a value indicating the lower bound of the interval.
+            </summary>
+        </member>
+        <member name="P:Universal.Common.Mathematics.Interval`1.LowerBoundType">
+            <summary>
+            Gets the value indicating type of lower bound of the interval.
+            </summary>
+        </member>
+        <member name="P:Universal.Common.Mathematics.Interval`1.UpperBound">
+            <summary>
+            Gets a value indicating the upper bound of the interval.
+            </summary>
+        </member>
+        <member name="P:Universal.Common.Mathematics.Interval`1.UpperBoundType">
+            <summary>
+            Gets a value indicating the type of upper bound of the interval.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Interval`1.#ctor(`0,`0)">
+            <summary>
+            Instantiates a new closed interval over the given bounds.
+            </summary>
+            <param name="lowerBound"></param>
+            <param name="upperBound"></param>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Interval`1.#ctor(`0,`0,Universal.Common.Mathematics.IntervalBoundType)">
+            <summary>
+            Instantiate a new interval with the given bound type on both bounds.
+            </summary>
+            <param name="lowerBound"></param>
+            <param name="upperBound"></param>
+            <param name="boundType"></param>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Interval`1.#ctor(`0,Universal.Common.Mathematics.IntervalBoundType,`0,Universal.Common.Mathematics.IntervalBoundType)">
+            <summary>
+            Instantiates a new interval instance with the given parameters.
+            </summary>
+            <param name="lowerBound"></param>
+            <param name="lowerBoundType"></param>
+            <param name="upperBound"></param>
+            <param name="upperBoundType"></param>
+        </member>
+        <member name="P:Universal.Common.Mathematics.Interval`1.IsEmpty">
+            <summary>
+            Gets a value indicating if the interval is empty or not.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Interval`1.Contains(`0)">
+            <summary>
+            Returns true if the interval contains the given point.
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Universal.Common.Mathematics.Interval`1.Length">
+            <summary>
+            Gets the length of the interval, returning the default value if the interval is empty.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Interval`1.HasOverlap(Universal.Common.Mathematics.Interval{`0})">
+            <summary>
+            Returns true if the current <see cref="T:Universal.Common.Mathematics.Interval`1"/> has an non-empty overlap with the other <see cref="T:Universal.Common.Mathematics.Interval`1"/>.
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Interval`1.Overlap(Universal.Common.Mathematics.Interval{`0})">
+            <summary>
+            Computes the overlap interval of this <see cref="T:Universal.Common.Mathematics.Interval`1"/> and another <see cref="T:Universal.Common.Mathematics.Interval`1"/>.
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Interval`1.ToString">
+            <summary>
+            Returns a string representation of an interval.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.NaiveForecastModel`1">
+            <summary>
+            Implementation of <see cref="T:Universal.Common.Mathematics.ForecastModel`1"/> that returns the most recent point as its forecast.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Universal.Common.Mathematics.NormalDistribution">
+            <summary>
+            Provides methods relating to the normal distribution.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.NormalDistribution.ProbabilityDensityFunction(System.Double,System.Double)">
+            <summary>
+            Returns a function single parameter function representing the probability density function of the normal distribution.
+            </summary>
+            <param name="mean"></param>
+            <param name="standardDeivation"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.OptimizationParameters`2">
+            <summary>
+            Default implementation of <see cref="T:Universal.Common.Mathematics.IOptimizationParameters`2"/> that relies on expressions.
+            </summary>
+            <typeparam name="TPerformance">Type of the intermediate performance object on which the target and constraints can be evaluated against.</typeparam>
+            <typeparam name="TTarget">Type of the target.</typeparam>
+        </member>
+        <member name="P:Universal.Common.Mathematics.OptimizationParameters`2.Direction">
+            <summary>
+            Gets or sets the direction of the optimization problem.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.OptimizationParameters`2.#ctor(Universal.Common.Mathematics.OptimizationDirection,System.Linq.Expressions.Expression{System.Func{`0,`1}},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Universal.Common.Mathematics.OptimizationParameters`2"/> class with the given options.
+            </summary>
+            <param name="direction"></param>
+            <param name="target"></param>
+            <param name="constraints"></param>
+        </member>
+        <member name="M:Universal.Common.Mathematics.OptimizationParameters`2.AreConstraintsFulfilled(`0)">
+            <summary>
+            Returns true if all constraints are satisfied for the given <typeparamref name="TPerformance"/>.
+            </summary>
+            <param name="performance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.OptimizationParameters`2.GetTarget(`0)">
+            <summary>
+            Returns the value of the target for the given <typeparamref name="TPerformance"/>.
+            </summary>
+            <param name="performance"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.Polynomial">
+            <summary>
+            Class that represents a polynomial.
+            </summary>
+        </member>
+        <member name="P:Universal.Common.Mathematics.Polynomial.Coefficients">
+            <summary>
+            Gets the coefficients in the polynomial.
+            </summary>
+        </member>
+        <member name="P:Universal.Common.Mathematics.Polynomial.Order">
+            <summary>
+            Gets the order of the polynomial.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Polynomial.#ctor(System.Double[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Universal.Common.Mathematics.Polynomial"/> class with the given coefficients.
+            </summary>
+            <param name="coefficients"></param>
+        </member>
+        <member name="P:Universal.Common.Mathematics.Polynomial.Function">
+            <summary>
+            Gets a function f(x) that the polynomial represents.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Polynomial.Evaluate(System.Double)">
+            <summary>
+            Evaluates the given <see cref="T:Universal.Common.Mathematics.Polynomial"/> at the point x.
+            </summary>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Polynomial.ResidualSumOfSquares(System.Double[],System.Double[])">
+            <summary>
+            Returns the residual sum of squares for the given set of points.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Polynomial.FitXY(System.Double[],System.Double[],System.Double)">
+            <summary>
+            Returns the best fitting <see cref="T:Universal.Common.Mathematics.Polynomial"/> of an order determined to be appropriate by the algorithm.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="threshold"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Polynomial.FitXY(System.Double[],System.Double[],System.Int32)">
+            <summary>
+            Returns a <see cref="T:Universal.Common.Mathematics.Polynomial"/> of the given order best fitting the given points.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Polynomial.FitXY(System.Double[],System.Double[],System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Returns the best fitting <see cref="T:Universal.Common.Mathematics.Polynomial"/> from the given points, using the given powers.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="powers"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Universal.Common.Mathematics.Polynomial.Item(System.Int32)">
+            <summary>
+            Gets or sets the coefficient at the given index.
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Common.Mathematics.Polynomial.ToString">
+            <summary>
+            Returns a string representation of this <see cref="T:Universal.Common.Mathematics.Polynomial"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.RandomOptimizer`4">
+            <summary>
+            <see cref="T:Universal.Common.Mathematics.IOptimizer`4"/> that optimizes by trying random points and retaining the best performing one.
+            </summary>
+            <typeparam name="TDatum"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <typeparam name="TPerformance"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+        </member>
+        <member name="M:Universal.Common.Mathematics.RandomOptimizer`4.#ctor(System.Func{`1},System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Universal.Common.Mathematics.RandomOptimizer`4"/> with the given random value generator and the specified max attempts.
+            </summary>
+            <param name="randomValueGenerator"></param>
+            <param name="maxAttempts"></param>
+        </member>
+        <member name="M:Universal.Common.Mathematics.RandomOptimizer`4.Optimize(Universal.Common.Mathematics.IOptimizationParameters{`2,`3},System.Collections.Generic.IEnumerable{`0},System.Func{System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}},`2})">
+            <summary>
+            Performs an optimization and returns the best fitting point.
+            </summary>
+            <param name="parameters">Parameters to use in the optimization.</param>
+            <param name="data">Data points to optimize on, which will each be assigned a value.</param>
+            <param name="performanceEstimator">A performance estimator function which will generate the intermediate performance, from which the target and constraints can be computed from.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.RandomOptimizer`5">
+            <summary>
+            <see cref="T:Universal.Common.Mathematics.IOptimizer`5"/> that optimizes by trying random points and retaining the best performing one.
+            </summary>
+            <typeparam name="TDatum"></typeparam>
+            <typeparam name="TPartition"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <typeparam name="TPerformance"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+        </member>
+        <member name="M:Universal.Common.Mathematics.RandomOptimizer`5.#ctor(System.Func{`2},System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Universal.Common.Mathematics.RandomOptimizer`4"/> with the given random value generator and the specified max attempts.
+            </summary>
+            <param name="randomValueGenerator"></param>
+            <param name="maxAttempts"></param>
+        </member>
+        <member name="M:Universal.Common.Mathematics.RandomOptimizer`5.Optimize(Universal.Common.Mathematics.IOptimizationParameters{`3,`4},System.Collections.Generic.IEnumerable{`0},System.Func{`0,`1},System.Func{System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`2}},`3})">
+            <summary>
+            Performs an optimization and returns the best fitting point.
+            </summary>
+            <param name="parameters">Parameters to use in the optimization.</param>
+            <param name="data">Data points to optimize on, which will each be assigned a value.</param>
+            <param name="partitioner">The partitioner to use to split data points into partitions</param>
+            <param name="performanceEstimator">A performance estimator function which will generate the intermediate performance, from which the target and constraints can be computed from.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Common.Mathematics.SeasonalForecastModel`1">
+            <summary>
+            Implementation of <see cref="T:Universal.Common.Mathematics.ForecastModel`1"/> that returns the previous seasonal value with an optional growth factor.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Universal.Common.Mathematics.SeasonalForecastModel`1.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.DateTime,`0}},Universal.Common.Mathematics.SeasonalForecastModel{`0}.DeterminePreviousSeasonDelegate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Universal.Common.Mathematics.SeasonalForecastModel`1"/> with the given previous sesason selection logic.
+            </summary>
+            <param name="actual"></param>
+            <param name="previousSeasonSelector"></param>
+        </member>
+        <member name="M:Universal.Common.Mathematics.SeasonalForecastModel`1.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.DateTime,`0}},Universal.Common.Mathematics.SeasonalForecastModel{`0}.DeterminePreviousSeasonDelegate,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Universal.Common.Mathematics.SeasonalForecastModel`1"/> with the given previous sesason selection logic and the scalar season-on-season growth factor.
+            </summary>
+            <param name="actual"></param>
+            <param name="previousSeasonSelector"></param>
+            <param name="growthFactor"></param>
+        </member>
+        <member name="T:Universal.Common.Mathematics.SparseVector`2">
+            <summary>
+            Represents a sparse vector of a given index given by <typeparamref name="TIndex"/> and a value of <typeparamref name="TValue"/>.
+            Depending on the key, this could be a generic tensor.
+            </summary>
+            <typeparam name="TIndex">An way to index the collection over all its components.</typeparam>
+            <typeparam name="TValue">A (usually numeric) type that the operators, +, -, *, and / should be defined for.</typeparam>
+        </member>
+        <member name="M:Universal.Common.Mathematics.SparseVector`2.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Universal.Common.Mathematics.SparseVector`2"/>.
+            </summary>
+        </member>
+        <member name="M:Universal.Common.Mathematics.SparseVector`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Universal.Common.Mathematics.SparseVector`2"/> class with the given index comparer.
+            </summary>
+            <param name="comparer"></param>
+        </member>
+        <member name="M:Universal.Common.Mathematics.SparseVector`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Universal.Common.Mathematics.SparseVector`2"/> class with the given values.
+            </summary>
+            <param name="dictionary"></param>
+        </member>
+        <member name="M:Universal.Common.Mathematics.SparseVector`2.#ctor(System.Collections.Generic.IDictionary{`0,`1},System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes the <see cref="T:Universal.Common.Mathematics.SparseVector`2"/> with the given values and comparer.
+            </summary>
+            <param name="dictionary"></param>
+            <param name="comparer"></param>
+        </member>
+        <member name="P:Universal.Common.Mathematics.SparseVector`2.Item(`0)">
+            <summary>
+            Gets or sets the value at the given index.
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Universal.Common.Mathematics.SparseVector`2.Count">
+            <summary>
+            Gets the number of non-default elements specified by the <see cref="T:Universal.Common.Mathematics.SparseVector`2"/>.
+            </summary>
+        </member>
+        <member name="T:Universal.Common.Mathematics.TimeSeries`1">
+            <summary>
+            Represents a simple time series.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+    </members>
+</doc>
