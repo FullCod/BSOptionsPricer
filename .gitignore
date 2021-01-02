@@ -1,0 +1,12 @@
+\bin\
+obj\
+config
+.vs
+*.cache
+**/packages/*
+[Bb]in/
+[Oo]bj/
+bin\Debug
+AIL.OptionsPricer\bin
+AIL.OptionsPricer\obj
+AIL.OptionsPricer.Tests\bin\Debug
